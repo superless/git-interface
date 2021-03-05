@@ -55,11 +55,18 @@ namespace trifenix.git.interfaces
 
         /// <summary>
         /// Commits a una rama
-        /// el mensaje quedará como tag.
+        /// al final de las operaciones realiza un commit y un push
         /// </summary>        
         /// <param name="commitMessageFileOperations">colección de key value, donde el key es el mensaje del commit y el value una acción que cambia archivos del repositorio</param>
         /// <param name="message">mensaje en el commit</param>
         void Commit(IEnumerable<Func<bool>> commitMessageFileOperations, string message);
+
+        /// <summary>
+        /// Permite realizar un lote de commits y al final hace un push
+        /// </summary>
+        /// <param name="commitMessageFileOperations"></param>
+        void Commit(Dictionary<string, Func<bool>> commitMessageFileOperations);
+        
 
 
         /// <summary>
